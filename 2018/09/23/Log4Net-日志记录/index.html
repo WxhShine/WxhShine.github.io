@@ -12,16 +12,19 @@
     
         <meta name="keywords" content="日志" />
     
-    <meta name="keywords" content="日志">
+    <meta name="description" content="​    Log4Net是用来记录日志的，可以将程序运行过程中的信息输出到一些地方（文件、数据库、EventLog等），日志就是程序的黑匣子，可以通过日志查看系统的运行过程，从而发现系统的问题。日志的作用：将运行过程的步骤、成功失败记录下来，将关键性的数据记录下来分析系统问题所在。​         对于网站来讲，不能把异常信息显示给用户，异常信息只能记录到日志，出了问题把日志文件发给开发人员，">
+<meta name="keywords" content="日志">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Log4Net--日志记录">
 <meta property="og:url" content="http://yoursite.com/2018/09/23/Log4Net-日志记录/index.html">
 <meta property="og:site_name" content="WxhShine">
+<meta property="og:description" content="​    Log4Net是用来记录日志的，可以将程序运行过程中的信息输出到一些地方（文件、数据库、EventLog等），日志就是程序的黑匣子，可以通过日志查看系统的运行过程，从而发现系统的问题。日志的作用：将运行过程的步骤、成功失败记录下来，将关键性的数据记录下来分析系统问题所在。​         对于网站来讲，不能把异常信息显示给用户，异常信息只能记录到日志，出了问题把日志文件发给开发人员，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/09/23/Log4Net-日志记录/日志.jpg">
-<meta property="og:updated_time" content="2018-09-30T15:43:18.684Z">
+<meta property="og:updated_time" content="2018-10-06T15:25:07.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Log4Net--日志记录">
+<meta name="twitter:description" content="​    Log4Net是用来记录日志的，可以将程序运行过程中的信息输出到一些地方（文件、数据库、EventLog等），日志就是程序的黑匣子，可以通过日志查看系统的运行过程，从而发现系统的问题。日志的作用：将运行过程的步骤、成功失败记录下来，将关键性的数据记录下来分析系统问题所在。​         对于网站来讲，不能把异常信息显示给用户，异常信息只能记录到日志，出了问题把日志文件发给开发人员，">
 <meta name="twitter:image" content="http://yoursite.com/2018/09/23/Log4Net-日志记录/日志.jpg">
     
 
@@ -165,13 +168,24 @@
         
         <div class="article-entry" itemprop="articleBody">
             <img src="/2018/09/23/Log4Net-日志记录/日志.jpg" title="日志">
+<p>​    Log4Net是用来记录日志的，可以将程序运行过程中的信息输出到一些地方（文件、数据库、EventLog等），日志就是程序的黑匣子，可以通过<br>日志查看系统的运行过程，从而发现系统的问题。日志的作用：将运行过程的步骤、成功失败记录下来，将关键性的数据记录下来分析系统问题所在。<br>​         对于网站来讲，不能把异常信息显示给用户，异常信息只能记录到日志，出了问题把日志文件发给开发人员，就能知道问题所在。    </p>
+<a id="more"></a>
+<p>​    <strong>第一步</strong>:  建立一个简单的日志记录程序;</p>
+<p>​    <strong>第二步</strong>:  添加对Log4net.dll的引用,可以通过NuGet导入,也可以通过官网<a href="http://logging.apache.org/log4net/" target="_blank" rel="noopener">http://logging.apache.org/log4net/</a>下载;</p>
+<p>​    <strong>第三步</strong>:  将Log4Net的配置信息加入到程序中的配置文件.config中如下:(更多详细信息请查看官网.)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Log4Net配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">configSections</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">name</span>=<span class="string">"log4net"</span> <span class="attr">type</span>=<span class="string">"log4net.Config.Log4NetConfigurationSectionHandler, log4net"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">configSections</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">log4net</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Define some output appenders --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"RollingLogFileAppender"</span> <span class="attr">type</span>=<span class="string">"log4net.Appender.RollingFileAppender"</span>&gt;</span><span class="comment">&lt;!--type:表示将日志记录到滚动文件中,其中,AdoNetAppender(记录到数据库中),SmtpAppender(邮件),ConsoleAppender(控制台显示日志),EventLogAppender(Windows事件日志)--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">file</span> <span class="attr">value</span>=<span class="string">"test.txt"</span>/&gt;</span><span class="comment">&lt;!--日志存放位置--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">appendToFile</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span><span class="comment">&lt;!--日志内容是否追加在文件中,false表示覆盖之前内容--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maxSizeRollBackups</span> <span class="attr">value</span>=<span class="string">"10"</span>/&gt;</span><span class="comment">&lt;!--当文件数据量超过存储量,则新建文件,属性表示最多备份多少文件--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">maximumFileSize</span> <span class="attr">value</span>=<span class="string">"1024KB"</span>/&gt;</span><span class="comment">&lt;!--最大存储数据量--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">rollingStyle</span> <span class="attr">value</span>=<span class="string">"Size"</span>/&gt;</span><span class="comment">&lt;!--滚动备份的方式,Size表示文件大小,Date表示日期--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">staticLogFileName</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span><span class="comment">&lt;!--日志文件名是否静态 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">layout</span> <span class="attr">type</span>=<span class="string">"log4net.Layout.PatternLayout"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">conversionPattern</span> <span class="attr">value</span>=<span class="string">"%date [%thread] %-5level %logger - %message%newline"</span>/&gt;</span><span class="comment">&lt;!--表示输出格式:记录时间,线程Id,日志级别,出错类,错误描述,换行--&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">level</span> <span class="attr">value</span>=<span class="string">"ERROR"</span>/&gt;</span><span class="comment">&lt;!--日志等级:None&gt;Fatal&gt;ERROR&gt;WARN&gt;DEBUG&gt;INFO&gt;ALL.如果日志级别低于此value级别,则不会记录--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"RollingLogFileAppender"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--可以设置多个Appender将日志信息分别记录到不同地方--&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">log4net</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​    <strong>第四步</strong>:  初始化Log4Net. 在程序最开始就初始化.log4net.Config.Xmlconfigtor.Configure();(读取配置文件中的配置信息);</p>
+<p>​    <strong>第五步</strong>:  在需要打印日志的地方</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> ILog log = log4net.LogManager.GetLogger(&quot;&quot;); </span><br><span class="line">//错误信息</span><br><span class="line"> log.Error(&quot;error&quot;,new Exception(&quot;错误异常信息&quot;));</span><br><span class="line">//崩溃信息</span><br><span class="line"> log.Fatal(&quot;fatal&quot;,new Exception(&quot;发生了一个致命错误&quot;));</span><br><span class="line">//记录一般信息           </span><br><span class="line"> log.Info(&quot;info&quot;);           </span><br><span class="line">//记录调试信息            </span><br><span class="line"> log.Debug(&quot;debug&quot;);            </span><br><span class="line">//记录警告信息            </span><br><span class="line"> log.Warn(&quot;warn&quot;);</span><br></pre></td></tr></table></figure>
+<p>以上就是log4net基本应用方式</p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/09/23/Log4Net-日志记录/" data-id="cjmp1kaeg0001es99aszaugsc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/09/23/Log4Net-日志记录/" data-id="cjn8hq12v0005lw99qp85ugjf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -269,6 +283,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/10/03/EF-CodeFirst模式/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            EF-CodeFirst模式
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/09/15/Spring-Net-控制反转/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
@@ -290,6 +314,46 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/03/EF-CodeFirst-建表时单复数形式/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/10/03/EF-CodeFirst-建表时单复数形式/" class="title">EF-CodeFirst:建表时单复数形式</a></p>
+                            <p class="item-date"><time datetime="2018-10-03T06:28:34.000Z" itemprop="datePublished">2018-10-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/03/EF-CodeFirst模式/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
+                            <p class="item-title"><a href="/2018/10/03/EF-CodeFirst模式/" class="title">EF-CodeFirst模式</a></p>
+                            <p class="item-date"><time datetime="2018-10-03T06:27:14.000Z" itemprop="datePublished">2018-10-03</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -351,46 +415,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/08/15/Csharp中的匿名类型/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/08/15/Csharp中的匿名类型/匿名.jpg)" alt="C#中的匿名类型" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
-                            <p class="item-title"><a href="/2018/08/15/Csharp中的匿名类型/" class="title">C#中的匿名类型</a></p>
-                            <p class="item-date"><time datetime="2018-08-15T08:14:16.000Z" itemprop="datePublished">2018-08-15</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/07/22/多线程-Java与CSharp/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/07/22/多线程-Java与CSharp/多线程.jpg)" alt="多线程-Java与CSharp" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/C-与Java/">C#与Java</a></p>
-                            <p class="item-title"><a href="/2018/07/22/多线程-Java与CSharp/" class="title">多线程-Java与CSharp</a></p>
-                            <p class="item-date"><time datetime="2018-07-22T06:44:47.000Z" itemprop="datePublished">2018-07-22</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -400,7 +424,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -410,7 +434,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -420,7 +444,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-EF/">C# , EF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -430,7 +454,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/Java-C/" style="font-size: 10px;">Java C#</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a>
+            <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/C-EF/" style="font-size: 10px;">C# , EF</a> <a href="/tags/Java-C/" style="font-size: 10px;">Java C#</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a>
         </div>
     </div>
 
