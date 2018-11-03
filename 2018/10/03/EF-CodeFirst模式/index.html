@@ -12,15 +12,20 @@
     
         <meta name="keywords" content="C# , EF" />
     
-    <meta name="keywords" content="C# , EF">
+    <meta name="description" content="EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Relational Mapping 对象关系映射)工具，ORM让开发人员节省数据库访问的代码时间，将更多的时间放到业务逻辑层代码上。EF提供变更跟踪、唯一性约束、惰性加载、查询事物等。开发人员使用Linq语言，对数据库操作如同操作Object对象一样省事。 ​    EF由三种使用模式:1. C">
+<meta name="keywords" content="C# , EF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EF-CodeFirst模式">
 <meta property="og:url" content="http://yoursite.com/2018/10/03/EF-CodeFirst模式/index.html">
 <meta property="og:site_name" content="WxhShine">
+<meta property="og:description" content="EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Relational Mapping 对象关系映射)工具，ORM让开发人员节省数据库访问的代码时间，将更多的时间放到业务逻辑层代码上。EF提供变更跟踪、唯一性约束、惰性加载、查询事物等。开发人员使用Linq语言，对数据库操作如同操作Object对象一样省事。 ​    EF由三种使用模式:1. C">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-03T06:30:08.636Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/03/EF-CodeFirst模式/EF.png">
+<meta property="og:updated_time" content="2018-11-03T06:53:25.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EF-CodeFirst模式">
+<meta name="twitter:description" content="EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Relational Mapping 对象关系映射)工具，ORM让开发人员节省数据库访问的代码时间，将更多的时间放到业务逻辑层代码上。EF提供变更跟踪、唯一性约束、惰性加载、查询事物等。开发人员使用Linq语言，对数据库操作如同操作Object对象一样省事。 ​    EF由三种使用模式:1. C">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/03/EF-CodeFirst模式/EF.png">
     
 
     
@@ -162,14 +167,35 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <img src="/2018/10/03/EF-CodeFirst模式/EF.png" title="EF">
+<h3 id="EF简介"><a href="#EF简介" class="headerlink" title="EF简介"></a>EF简介</h3><p>​    EF全称是Entity Framework,是微软官方提供的ORM(Object Relational Mapping 对象关系映射)工具，ORM让开发人员节省数据库访问的代码时间，将更多的时间放到业务逻辑层代码上。EF提供变更跟踪、唯一性约束、惰性加载、查询事物等。开发人员使用Linq语言，对数据库操作如同操作Object对象一样省事。</p>
+<p>​    EF由三种使用模式:1. Code First模式：由实体类生成数据库结构；2. Model First模式：通过数据库可视化设计器设计数据库，并生成实体类；3. Database First模式：由数据库生成实体类。</p>
+<h3 id="Code-First模式"><a href="#Code-First模式" class="headerlink" title="Code First模式"></a>Code First模式</h3><p> Code First模式我们称之为“代码优先”模式，是从EF4.1开始新建加入的功能。使用Code First模式进行EF开发时开发人员只需要编写对应的数据类（其实就是领域模型的实现过程），然后自动生成数据库。这样设计的好处在于我们可以针对概念模型进行所有数据操作而不必关系数据的存储关系，使我们可以更加自然的采用面向对象的方式进行面向数据的应用程序开发。</p>
+<p>​    Code First模式的使用：</p>
+<p>在Vs2017中新建一个名为EFDemo的控制台应用程序项目如下新建一个user类，和一个UserContext类：</p>
+<img src="/2018/10/03/EF-CodeFirst模式/EFDemo解决方案.png" title="EFDemo解决方案">
+<p>User类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">using System.ComponentModel.DataAnnotations;</span><br><span class="line">using System.ComponentModel.DataAnnotations.Schema;</span><br><span class="line"></span><br><span class="line">namespace EFDemo &#123;</span><br><span class="line">    public class User &#123;</span><br><span class="line">        [Key,Index]//设置Id为主键,并添加索引</span><br><span class="line">        public int Id &#123; get; set; &#125;</span><br><span class="line">        public string Name &#123; get; set; &#125;</span><br><span class="line">        public string Password &#123; get; set; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>UserContext类:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">using System.Data.Entity;</span><br><span class="line">namespace EFDemo &#123;</span><br><span class="line">    public class UserContext :DbContext&#123;</span><br><span class="line">        public UserContext() : base(&quot;EFDemoConnectionString&quot;) &#123; &#125;</span><br><span class="line"></span><br><span class="line">        public DbSet&lt;User&gt; User &#123; get; set; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在建立UserContext中必须继承自 System.Data.Entity.DbContext类,才能有对数据的CRUD操作, 要使用DbContext类必须引用EntityFramework包.在NuGet中进行检索安装:</p>
+<p>如下:</p>
+<img src="/2018/10/03/EF-CodeFirst模式/NuGet-EF.png" title="NuGet-EF">
+<p>运行Main方法后,将自动生成数据库:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using System.Linq;</span><br><span class="line"></span><br><span class="line">namespace EFDemo &#123;</span><br><span class="line">    class Program</span><br><span class="line">    &#123;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            using(var context = new UserContext()) &#123;</span><br><span class="line">                var user = new User &#123;</span><br><span class="line">                    Id = 1,</span><br><span class="line">                    Name = &quot;user&quot;,</span><br><span class="line">                    Password = &quot;123&quot;,</span><br><span class="line">                &#125;;</span><br><span class="line">                context.User.Add(user);//新增一条数据</span><br><span class="line">                context.SaveChanges();//保存更改.每一次对数据库的CUD操作都应该使用此方法</span><br><span class="line">                var query = from a in context.User</span><br><span class="line">                            where a.Id == 1</span><br><span class="line">                            select a;//Linq 语句用户快速查询</span><br><span class="line">                Console.Write($&quot;UserId:&#123;user.Id&#125;,UserName:&#123;user.Name   &#125;,UserPassword:&#123;user.Password&#125;&quot;);</span><br><span class="line">                Console.ReadKey();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果展示:</p>
+<img src="/2018/10/03/EF-CodeFirst模式/Console结果展示.png" title="Console结果展示">
+<p>数据库展示:</p>
+<img src="/2018/10/03/EF-CodeFirst模式/数据库展示1.png" title="数据库展示">
+<img src="/2018/10/03/EF-CodeFirst模式/数据库展示2.png" title="数据库展示">
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/10/03/EF-CodeFirst模式/" data-id="cjn8hq12s0004lw993mkcvd09" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/10/03/EF-CodeFirst模式/" data-id="cjo0yv8r00005n8994fohtc44" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -267,7 +293,7 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/10/03/EF-CodeFirst-建表时单复数形式/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/10/05/EF-CodeFirst-建表时单复数形式/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
@@ -302,10 +328,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/10/03/EF-CodeFirst-建表时单复数形式/" class="thumbnail">
+                            <a href="/2018/10/05/EF-CodeFirst-建表时单复数形式/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2018/10/05/EF-CodeFirst-建表时单复数形式/New.jpg)" alt="EF-CodeFirst:建表时单复数形式" class="thumbnail-image"></span>
     
     
 </a>
@@ -313,9 +339,9 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/03/EF-CodeFirst-建表时单复数形式/" class="title">EF-CodeFirst:建表时单复数形式</a></p>
-                            <p class="item-date"><time datetime="2018-10-03T06:28:34.000Z" itemprop="datePublished">2018-10-03</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
+                            <p class="item-title"><a href="/2018/10/05/EF-CodeFirst-建表时单复数形式/" class="title">EF-CodeFirst:建表时单复数形式</a></p>
+                            <p class="item-date"><time datetime="2018-10-05T06:28:34.000Z" itemprop="datePublished">2018-10-05</time></p>
                         </div>
                     </li>
                 
@@ -325,7 +351,7 @@
                             <a href="/2018/10/03/EF-CodeFirst模式/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2018/10/03/EF-CodeFirst模式/EF.png)" alt="EF-CodeFirst模式" class="thumbnail-image"></span>
     
     
 </a>
@@ -408,7 +434,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -428,7 +454,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-EF/">C# , EF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-EF/">C# , EF</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -438,7 +464,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/C-EF/" style="font-size: 10px;">C# , EF</a> <a href="/tags/Java-C/" style="font-size: 10px;">Java C#</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a>
+            <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/C-EF/" style="font-size: 20px;">C# , EF</a> <a href="/tags/Java-C/" style="font-size: 10px;">Java C#</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a>
         </div>
     </div>
 
