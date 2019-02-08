@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>多线程-Java与C# | WxhShine</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Java C#" />
+    
+    <meta name="description" content="​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:">
+<meta name="keywords" content="Java C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程-Java与C#">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/多线程-Java与C/index.html">
+<meta property="og:site_name" content="WxhShine">
+<meta property="og:description" content="​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/07/22/多线程-Java与C/多线程.jpg">
+<meta property="og:updated_time" content="2019-01-17T10:50:46.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多线程-Java与C#">
+<meta name="twitter:description" content="​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/22/多线程-Java与C/多线程.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C#</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C-与Java/">C#与Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/MD语法/">MD语法</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Nosql/">Nosql</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/C-与Java/">C#与Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-多线程-Java与C" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        多线程-Java与C#
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/07/22/多线程-Java与C/" class="article-date">
+            <time datetime="2018-07-22T06:44:47.000Z" itemprop="datePublished">2018-07-22</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java-C/">Java C#</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+              <img src="/2018/07/22/多线程-Java与C/多线程.jpg" title="多线程">
+<p>​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:</p>
+<a id="more"></a>
+<h3 id="1-新建一个线程"><a href="#1-新建一个线程" class="headerlink" title="1.新建一个线程"></a>1.新建一个线程</h3><h5 id="Java创建线程："><a href="#Java创建线程：" class="headerlink" title="Java创建线程："></a>Java创建线程：</h5><ol>
+<li><p>一种方法是：自定义一个类，继承Thread类，且重写其中的run()方法：例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class NewThread extends Thread&#123; //继承Tread类</span><br><span class="line">    @Override			//重写run()方法</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        for(int i = 0; i &lt; 100; i++)</span><br><span class="line">        	System.out.println(&quot;this is another thread&quot; + i);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main (String[] args[])&#123;</span><br><span class="line">        NewThread thread = new NewThread();</span><br><span class="line">        thread.start(); //自定义线程开始。</span><br><span class="line">        for(int i = 0; i&lt;100; i++)&#123;</span><br><span class="line">            System.out.println(&quot;this is main thread&quot; + i)；</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>另一种方法是：自定义个一类，继承Runable接口，并重写接口中的run()方法：例如;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class NewRunable implement Runable&#123; //继承Runable接口</span><br><span class="line">    @Override		//重写run()方法</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        for(int i = 0; i &lt; 100; i++)</span><br><span class="line">        	System.out.println(&quot;this is another thread&quot; + i);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main (String[] args[])&#123;</span><br><span class="line">        NewRunable runable = new NewRunable();</span><br><span class="line">        Thread thread = new Thread(runable,)</span><br><span class="line">        thread.start(); //自定义线程开始。</span><br><span class="line">        for(int i = 0; i&lt;100; i++)&#123;</span><br><span class="line">            System.out.println(&quot;this is main thread&quot; + i)；</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="C-创建线程："><a href="#C-创建线程：" class="headerlink" title="C#创建线程："></a>C#创建线程：</h5><p>   ​    通过创建一个Thread类接收一个ThreadStart委托或ParameterizedThreadStart委托，委托中包含新线程执行的的方法，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    class Program &#123;</span><br><span class="line">        static void Main(string[] args) &#123;</span><br><span class="line">            ThreadStart threadStart = new ThreadStart(Run);</span><br><span class="line">            Thread thread = new Thread(threadStart);</span><br><span class="line">            thread.Start();</span><br><span class="line">            for (int i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">                Console.WriteLine(&quot;this is main thread&quot; + i);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">		//线程要</span><br><span class="line">        static void Run() &#123;</span><br><span class="line">            for(int i = 0; i&lt;100; i++) &#123;</span><br><span class="line">                Console.WriteLine(&quot;this is another thread&quot; + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-线程安全问题"><a href="#2-线程安全问题" class="headerlink" title="2. 线程安全问题"></a>2. 线程安全问题</h3><h5 id="线程的生命周期："><a href="#线程的生命周期：" class="headerlink" title="线程的生命周期："></a>线程的生命周期：</h5><p>   创建   ——-&gt;start()——-&gt;可运行状态（具备等待CPU的资格，不具备CPU的执行权）——-&gt;得到CPU的执行权——–&gt;运行状态(具备等待CPU和CPU的执行资格)(运行状态和可运行状态可相互装换)——–&gt;完成任务——–&gt;死亡状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sleep(ms) : 进入临时阻塞状态,那么线程一旦超过了指定了睡眠时间，那么就会重新进入可运行状态，</span><br><span class="line">wait：需要其他线程唤醒该线程才可以重新进入可运行状态。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">引起线程安全问题的条件：1. 在多线程的环境下；2. 线程中有共享数据；3. 共享数据有多条语句操作，执行。</span><br></pre></td></tr></table></figure>
+<h5 id="Java中线程安全问题的解决方案："><a href="#Java中线程安全问题的解决方案：" class="headerlink" title="Java中线程安全问题的解决方案："></a><em>Java</em>中线程安全问题的解决方案：</h5><ol>
+<li><p>使用同步代码块， synchronize([锁对象])     </p>
+<p>(Note:锁对象可以是任何对象(object）,切是唯一共享的，否则无效。（最简单的定义一个锁可以使用 字符串）</p>
+<p>我们使用一个比较典型的例子来实现此问题（售票窗口售票的问题）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class SaleWindow extends Thread&#123;</span><br><span class="line">    public static int num = 50;      //售票的剩余数</span><br><span class="line">    public SaleWindow(String name)&#123;super(name);&#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            synchronized(&quot;lock&quot;)&#123;</span><br><span class="line">                if(num &gt; 0)&#123;</span><br><span class="line">                    System.out.println(this.getName() + &quot;销售了第：&quot; + num + &quot;票&quot;);</span><br><span class="line">                    try&#123;</span><br><span class="line">                        Thread.sleep(100)；</span><br><span class="line">                    &#125;catch(InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    num--;</span><br><span class="line">                &#125; else&#123;</span><br><span class="line">                    System.out.println(&quot;售完&quot;);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Sale &#123;</span><br><span class="line">    public static void main (String[] args)&#123;</span><br><span class="line">        SaleWindow win1 = new SaleWindow(&quot;窗口1：&quot;);</span><br><span class="line">        SaleWindow win2 = new SaleWindow(&quot;窗口2：&quot;);</span><br><span class="line">        SaleWindow win3 = new SaleWindow(&quot;窗口3：&quot;);</span><br><span class="line">        </span><br><span class="line">        win1.start();</span><br><span class="line">        win2.start();</span><br><span class="line">        win3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.同步方法：使用 synchronize 修饰一个方法： <strong><em>public synchronize void run()</em></strong></p>
+<p><strong>NOTE:</strong>  </p>
+<ol>
+<li>如果是一个非静态的同步函数的锁对象是this对象，如果是静态的同步函数的锁对象是当前函数所属的字节码字节（class对象)</li>
+<li>同步函数的锁对象是固定的，不能自定义；</li>
+</ol>
+</li>
+</ol>
+<h5 id="C-中线程安全的解决方案："><a href="#C-中线程安全的解决方案：" class="headerlink" title="C#中线程安全的解决方案："></a>C#中线程安全的解决方案：</h5><ol>
+<li><p><strong>lock关键字</strong></p>
+<p>类似于Java中的同步代码块，lock(“锁”){执行代码} 。不同的是lock中的参数只能是引用类型，因为如果使用基本类型所谓锁，这每次都会发生装箱操作，则每次lock中都会重新new一个对象。</p>
+<p><strong>NOTE:</strong>  </p>
+<ol>
+<li>尽量不要在public的类中使用lock，因为如此使用此类时，在不知情的情况下则会很容易造成死锁</li>
+<li>尽量不要用public的字段作为锁，也会容易造成死锁；</li>
+<li>不要用一个字符串作为锁，因为字符串被CLR“暂留”，就是说整个应用程序中给定的字符串都只有一个实例，因此更容易造成死锁现象。</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Demo2 &#123;</span><br><span class="line">    static int num = 50;</span><br><span class="line">    static object lockThe = new object();</span><br><span class="line">    static void Run() &#123;</span><br><span class="line">        while (true) &#123;</span><br><span class="line">            lock (lockThe) &#123;</span><br><span class="line">                if (num &gt; 0) &#123;</span><br><span class="line">                    Console.WriteLine(Thread.CurrentThread.Name + &quot;销售了第：&quot; + num + &quot;票&quot;);</span><br><span class="line">                    try &#123;</span><br><span class="line">                        Thread.Sleep(100);</span><br><span class="line">                    &#125;</span><br><span class="line">                    catch (Exception e) &#123;</span><br><span class="line">                        Console.WriteLine(e.StackTrace);</span><br><span class="line">                    &#125;</span><br><span class="line">                    num--;</span><br><span class="line">                &#125;</span><br><span class="line">                else &#123;</span><br><span class="line">                    Console.WriteLine(&quot;售完..&quot;);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    public static void Main(string[] args) &#123;</span><br><span class="line">        ThreadStart start = new ThreadStart(Run);</span><br><span class="line">        Thread win1 = new Thread(start);</span><br><span class="line">        Thread win2 = new Thread(start);</span><br><span class="line">        win1.Name = &quot;第一个窗口&quot;;</span><br><span class="line">        win2.Name = &quot;第二个窗口&quot;;</span><br><span class="line">        win1.Start();</span><br><span class="line">        win2.Start();</span><br><span class="line">        Console.ReadKey();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>Monitor</strong></p>
+<p>Monitor与lock类似，lock(object){}  等效于 Monitor.Enter(object)……Monitor.Exit(object).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lock (object)&#123;</span><br><span class="line">    Run();</span><br><span class="line">&#125;</span><br><span class="line">等效于：</span><br><span class="line">Monitor.Enter(object);</span><br><span class="line">try&#123;</span><br><span class="line">    Run();</span><br><span class="line">&#125;</span><br><span class="line">finally&#123;</span><br><span class="line">    Monitor.Exit(object);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Mutex</strong></p>
+<p>Mutex也是与Monitor类似,不过Mutex 有一个很大的特点，Mutex是跨进程的（博主不是很懂，会深入学习）。</p>
+</li>
+<li><p><strong>Interlocked</strong></p>
+<p>如果只是对整形数据进行简单的操作，可以使用Interlocked来实现同步。此类的方法有：Increment（ref i)（对整数加一个），Decrement(ref i)（对整数减一个）,Exchange(ref i , 100)与将i变为100，CompareExchange(ref i, 10 , 100),比较两个值，如果i与100相同，则i将变成10，否则不变。</p>
+</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2018/07/22/多线程-Java与C/" data-id="cjrw26l3z001dv499rsgcoynv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/WxhShine" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/07/22/多线程-Java与C#/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            多线程-Java与C#
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/07/20/MarkDown体验/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">MarkDown体验</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/08/HTTP协议/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/08/HTTP协议/" class="title">HTTP协议</a></p>
+                            <p class="item-date"><time datetime="2019-02-08T12:59:35.000Z" itemprop="datePublished">2019-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/19/异常处理-JAVA与C/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/01/19/异常处理-JAVA与C/" class="title">异常处理-JAVA与C#</a></p>
+                            <p class="item-date"><time datetime="2019-01-19T09:17:29.000Z" itemprop="datePublished">2019-01-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/16/泛型-Java与C/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2019/01/16/泛型-Java与C/泛型.jpg)" alt="泛型-Java与C#" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C-与Java/">C#与Java</a></p>
+                            <p class="item-title"><a href="/2019/01/16/泛型-Java与C/" class="title">泛型-Java与C#</a></p>
+                            <p class="item-date"><time datetime="2019-01-16T15:31:41.000Z" itemprop="datePublished">2019-01-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/01/C-中关于对象的Clone/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2019/01/01/C-中关于对象的Clone/Clone.gif)" alt="C#中关于对象的Clone" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
+                            <p class="item-title"><a href="/2019/01/01/C-中关于对象的Clone/" class="title">C#中关于对象的Clone</a></p>
+                            <p class="item-date"><time datetime="2019-01-01T12:39:15.000Z" itemprop="datePublished">2019-01-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/10/13/NoSql简介/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2018/10/13/NoSql简介/NoSql.jpg)" alt="NoSql简介" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Nosql/">Nosql</a></p>
+                            <p class="item-title"><a href="/2018/10/13/NoSql简介/" class="title">NoSql简介</a></p>
+                            <p class="item-date"><time datetime="2018-10-13T10:59:42.000Z" itemprop="datePublished">2018-10-13</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nosql/">Nosql</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-EF/">C# , EF</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clone/">Clone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/">Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nosql/">Nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/C-EF/" style="font-size: 15px;">C# , EF</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/Java-C/" style="font-size: 20px;">Java C#</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 XiaoHui</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2018/07/22/多线程-Java与C/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

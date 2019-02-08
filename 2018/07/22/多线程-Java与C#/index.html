@@ -6,26 +6,24 @@
     
 
     
-    <title>C#中的匿名类型 | WxhShine</title>
+    <title>多线程-Java与C# | WxhShine</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="C#" />
+        <meta name="keywords" content="Java C#" />
     
-    <meta name="description" content="​    在一个项目中遇到了一个关于匿名类型的坑">
-<meta name="keywords" content="C#">
+    <meta name="description" content="​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:">
+<meta name="keywords" content="Java C#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#中的匿名类型">
-<meta property="og:url" content="http://yoursite.com/2018/08/15/Csharp中的匿名类型/index.html">
+<meta property="og:title" content="多线程-Java与C#">
+<meta property="og:url" content="http://yoursite.com/2018/07/22/多线程-Java与C#/index.html">
 <meta property="og:site_name" content="WxhShine">
-<meta property="og:description" content="​    在一个项目中遇到了一个关于匿名类型的坑">
+<meta property="og:description" content="​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/08/15/Csharp中的匿名类型/匿名.jpg">
-<meta property="og:updated_time" content="2019-01-05T16:37:38.942Z">
+<meta property="og:updated_time" content="2019-01-16T15:38:59.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#中的匿名类型">
-<meta name="twitter:description" content="​    在一个项目中遇到了一个关于匿名类型的坑">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/15/Csharp中的匿名类型/匿名.jpg">
+<meta name="twitter:title" content="多线程-Java与C#">
+<meta name="twitter:description" content="​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:">
     
 
     
@@ -128,19 +126,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/C/">C#</a>
+    <a class="page-title-link" href="/categories/C-与Java/">C#与Java</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Csharp中的匿名类型" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-多线程-Java与C#" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        C#中的匿名类型
+        多线程-Java与C#
         </h1>
     
 
@@ -150,8 +148,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/08/15/Csharp中的匿名类型/" class="article-date">
-            <time datetime="2018-08-15T08:14:16.000Z" itemprop="datePublished">2018-08-15</time>
+        <a href="/2018/07/22/多线程-Java与C#/" class="article-date">
+            <time datetime="2018-07-22T06:44:47.000Z" itemprop="datePublished">2018-07-22</time>
         </a>
     </div>
 
@@ -160,25 +158,66 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/C/">C#</a>
+        <a class="tag-link" href="/tags/Java-C/">Java C#</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <img src="/2018/08/15/Csharp中的匿名类型/匿名.jpg" title="匿名">
-<p>​    在一个项目中遇到了一个关于<strong>匿名类型</strong>的坑</p>
+              
+<p>​    C#和Java中的多线程有相同之处，和不同之处。接下来请看:</p>
 <a id="more"></a>
-<p>在C#中的匿名类型是这样创建的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new &#123;Id = 1, Name = &quot;Tom&quot;, Psw = &quot;123&quot;&#125;;</span><br></pre></td></tr></table></figure>
-<p>而这些匿名类型的属性是internal的，所以是只有在同一程序集才能使用。</p>
-<p>​    在一个项目中我使用了dynamic去声明了一个参数，并且跨程序集调用了此方法，则会抛出异常： <strong>Microsoft.CSharp.RuntimeBinder.RuntimeBinderException</strong> ：object类中未包含Id的定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//在一个项目添加此代码</span><br><span class="line">using System;</span><br><span class="line">namespace DynamicDemo &#123;</span><br><span class="line">    class Program &#123;</span><br><span class="line">        static void Main(string[] args) &#123;</span><br><span class="line">            var user = new &#123; Id = 1, name = &quot;Tom&quot;, psw = &quot;123&quot; &#125;;</span><br><span class="line">            LoginInter(user);</span><br><span class="line">            Demo.Demo.Login(user);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">        public static void LoginInter(dynamic user) &#123;</span><br><span class="line">            Console.Write(user.Id + user.name + user.psw);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//在另一个项目中添加此代码  生成的程序集是Demo.dll</span><br><span class="line">using System;</span><br><span class="line">namespace Demo &#123;</span><br><span class="line">    public class Demo &#123;</span><br><span class="line">        public static void Login(dynamic user) &#123;</span><br><span class="line">            Console.Write(user.Id + user.name + user.psw);//抛出异常</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>public</strong> 关键字是类型和类型成员的访问修饰符。公共访问是允许的最高访问级别，对访问公共成员没有限制。 </p>
-<p><strong>protected</strong> 关键字是一个成员访问修饰符。受保护成员在它的类中可访问并且可由派生类访问。</p>
-<p><strong>private</strong> 关键字是一个成员访问修饰符。私有访问是允许的最低访问级别。私有成员只有在声明它们的类和结构体中才是可访问的。</p>
-<p> <strong>internal</strong> 关键字是类型和类型成员的访问修饰符。只有在同一程序集的文件中，内部类型或成员才是可访问的。 </p>
+<h3 id="1-新建一个线程"><a href="#1-新建一个线程" class="headerlink" title="1.新建一个线程"></a>1.新建一个线程</h3><h5 id="Java创建线程："><a href="#Java创建线程：" class="headerlink" title="Java创建线程："></a>Java创建线程：</h5><ol>
+<li><p>一种方法是：自定义一个类，继承Thread类，且重写其中的run()方法：例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class NewThread extends Thread&#123; //继承Tread类</span><br><span class="line">    @Override			//重写run()方法</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        for(int i = 0; i &lt; 100; i++)</span><br><span class="line">        	System.out.println(&quot;this is another thread&quot; + i);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main (String[] args[])&#123;</span><br><span class="line">        NewThread thread = new NewThread();</span><br><span class="line">        thread.start(); //自定义线程开始。</span><br><span class="line">        for(int i = 0; i&lt;100; i++)&#123;</span><br><span class="line">            System.out.println(&quot;this is main thread&quot; + i)；</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>另一种方法是：自定义个一类，继承Runable接口，并重写接口中的run()方法：例如;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class NewRunable implement Runable&#123; //继承Runable接口</span><br><span class="line">    @Override		//重写run()方法</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        for(int i = 0; i &lt; 100; i++)</span><br><span class="line">        	System.out.println(&quot;this is another thread&quot; + i);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main (String[] args[])&#123;</span><br><span class="line">        NewRunable runable = new NewRunable();</span><br><span class="line">        Thread thread = new Thread(runable,)</span><br><span class="line">        thread.start(); //自定义线程开始。</span><br><span class="line">        for(int i = 0; i&lt;100; i++)&#123;</span><br><span class="line">            System.out.println(&quot;this is main thread&quot; + i)；</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="C-创建线程："><a href="#C-创建线程：" class="headerlink" title="C#创建线程："></a>C#创建线程：</h5><p>​    通过创建一个Thread类接收一个ThreadStart委托或ParameterizedThreadStart委托，委托中包含新线程执行的的方法，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">    class Program &#123;</span><br><span class="line">        static void Main(string[] args) &#123;</span><br><span class="line">            ThreadStart threadStart = new ThreadStart(Run);</span><br><span class="line">            Thread thread = new Thread(threadStart);</span><br><span class="line">            thread.Start();</span><br><span class="line">            for (int i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">                Console.WriteLine(&quot;this is main thread&quot; + i);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">		//线程要</span><br><span class="line">        static void Run() &#123;</span><br><span class="line">            for(int i = 0; i&lt;100; i++) &#123;</span><br><span class="line">                Console.WriteLine(&quot;this is another thread&quot; + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-线程安全问题"><a href="#2-线程安全问题" class="headerlink" title="2. 线程安全问题"></a>2. 线程安全问题</h3><h5 id="线程的生命周期："><a href="#线程的生命周期：" class="headerlink" title="线程的生命周期："></a>线程的生命周期：</h5><p>创建   ——-&gt;start()——-&gt;可运行状态（具备等待CPU的资格，不具备CPU的执行权）——-&gt;得到CPU的执行权——–&gt;运行状态(具备等待CPU和CPU的执行资格)(运行状态和可运行状态可相互装换)——–&gt;完成任务——–&gt;死亡状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sleep(ms) : 进入临时阻塞状态,那么线程一旦超过了指定了睡眠时间，那么就会重新进入可运行状态，</span><br><span class="line">wait：需要其他线程唤醒该线程才可以重新进入可运行状态。</span><br></pre></td></tr></table></figure>
+<pre><code>引起线程安全问题的条件：1. 在多线程的环境下；2. 线程中有共享数据；3. 共享数据有多条语句操作，执行。
+</code></pre><h5 id="Java中线程安全问题的解决方案："><a href="#Java中线程安全问题的解决方案：" class="headerlink" title="Java中线程安全问题的解决方案："></a><em>Java</em>中线程安全问题的解决方案：</h5><ol>
+<li><p>使用同步代码块， synchronize([锁对象])     </p>
+<p>(Note:锁对象可以是任何对象(object）,切是唯一共享的，否则无效。（最简单的定义一个锁可以使用 字符串）</p>
+<p>我们使用一个比较典型的例子来实现此问题（售票窗口售票的问题）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class SaleWindow extends Thread&#123;</span><br><span class="line">    public static int num = 50;      //售票的剩余数</span><br><span class="line">    public SaleWindow(String name)&#123;super(name);&#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void run()&#123;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            synchronized(&quot;lock&quot;)&#123;</span><br><span class="line">                if(num &gt; 0)&#123;</span><br><span class="line">                    System.out.println(this.getName() + &quot;销售了第：&quot; + num + &quot;票&quot;);</span><br><span class="line">                    try&#123;</span><br><span class="line">                        Thread.sleep(100)；</span><br><span class="line">                    &#125;catch(InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    num--;</span><br><span class="line">                &#125; else&#123;</span><br><span class="line">                    System.out.println(&quot;售完&quot;);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class Sale &#123;</span><br><span class="line">    public static void main (String[] args)&#123;</span><br><span class="line">        SaleWindow win1 = new SaleWindow(&quot;窗口1：&quot;);</span><br><span class="line">        SaleWindow win2 = new SaleWindow(&quot;窗口2：&quot;);</span><br><span class="line">        SaleWindow win3 = new SaleWindow(&quot;窗口3：&quot;);</span><br><span class="line">        </span><br><span class="line">        win1.start();</span><br><span class="line">        win2.start();</span><br><span class="line">        win3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.同步方法：使用 synchronize 修饰一个方法： <strong><em>public synchronize void run()</em></strong></p>
+<p><strong>NOTE:</strong>  </p>
+<ol>
+<li><p>如果是一个非静态的同步函数的锁对象是this对象，如果是静态的同步函数的锁对象是当前函数所属的字节码字节（class对象)</p>
+</li>
+<li><p>同步函数的锁对象是固定的，不能自定义；</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h5 id="C-中线程安全的解决方案："><a href="#C-中线程安全的解决方案：" class="headerlink" title="C#中线程安全的解决方案："></a>C#中线程安全的解决方案：</h5><ol>
+<li><p><strong>lock关键字</strong></p>
+<p>类似于Java中的同步代码块，lock(“锁”){执行代码} 。不同的是lock中的参数只能是引用类型，因为如果使用基本类型所谓锁，这每次都会发生装箱操作，则每次lock中都会重新new一个对象。</p>
+<p><strong>NOTE:</strong>  </p>
+<ol>
+<li>尽量不要在public的类中使用lock，因为如此使用此类时，在不知情的情况下则会很容易造成死锁</li>
+<li>尽量不要用public的字段作为锁，也会容易造成死锁；</li>
+<li>不要用一个字符串作为锁，因为字符串被CLR“暂留”，就是说整个应用程序中给定的字符串都只有一个实例，因此更容易造成死锁现象。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Demo2 &#123;</span><br><span class="line">    static int num = 50;</span><br><span class="line">    static object lockThe = new object();</span><br><span class="line">    static void Run() &#123;</span><br><span class="line">        while (true) &#123;</span><br><span class="line">            lock (lockThe) &#123;</span><br><span class="line">                if (num &gt; 0) &#123;</span><br><span class="line">                    Console.WriteLine(Thread.CurrentThread.Name + &quot;销售了第：&quot; + num + &quot;票&quot;);</span><br><span class="line">                    try &#123;</span><br><span class="line">                        Thread.Sleep(100);</span><br><span class="line">                    &#125;</span><br><span class="line">                    catch (Exception e) &#123;</span><br><span class="line">                        Console.WriteLine(e.StackTrace);</span><br><span class="line">                    &#125;</span><br><span class="line">                    num--;</span><br><span class="line">                &#125;</span><br><span class="line">                else &#123;</span><br><span class="line">                    Console.WriteLine(&quot;售完..&quot;);</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    public static void Main(string[] args) &#123;</span><br><span class="line">        ThreadStart start = new ThreadStart(Run);</span><br><span class="line">        Thread win1 = new Thread(start);</span><br><span class="line">        Thread win2 = new Thread(start);</span><br><span class="line">        win1.Name = &quot;第一个窗口&quot;;</span><br><span class="line">        win2.Name = &quot;第二个窗口&quot;;</span><br><span class="line">        win1.Start();</span><br><span class="line">        win2.Start();</span><br><span class="line">        Console.ReadKey();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Monitor</strong></p>
+<p>Monitor与lock类似，lock(object){}  等效于 Monitor.Enter(object)……Monitor.Exit(object).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">lock (object)&#123;</span><br><span class="line">    Run();</span><br><span class="line">&#125;</span><br><span class="line">等效于：</span><br><span class="line">Monitor.Enter(object);</span><br><span class="line">try&#123;</span><br><span class="line">    Run();</span><br><span class="line">&#125;</span><br><span class="line">finally&#123;</span><br><span class="line">    Monitor.Exit(object);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Mutex</strong></p>
+<p>Mutex也是与Monitor类似,不过Mutex 有一个很大的特点，Mutex是跨进程的（博主不是很懂，会深入学习）。</p>
+</li>
+<li><p><strong>Interlocked</strong></p>
+<p>如果只是对整形数据进行简单的操作，可以使用Interlocked来实现同步。此类的方法有：Increment（ref i)（对整数加一个），Decrement(ref i)（对整数减一个）,Exchange(ref i , 100)与将i变为100，CompareExchange(ref i, 10 , 100),比较两个值，如果i与100相同，则i将变成10，否则不变。</p>
+</li>
+</ol>
 
         </div>
         <footer class="article-footer">
@@ -186,7 +225,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2018/08/15/Csharp中的匿名类型/" data-id="cjrw26l2h0002v499erqi3i5s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/07/22/多线程-Java与C#/" data-id="cjrw26l2y000jv499cwxnond1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -284,18 +323,18 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/09/02/Memcache-分布式缓存/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/08/15/Csharp中的匿名类型/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            Memcache--分布式缓存
+            C#中的匿名类型
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2018/07/22/多线程-Java与C#/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/07/22/多线程-Java与C/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
         <p class="article-nav-title">多线程-Java与C#</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
@@ -511,7 +550,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2018/08/15/Csharp中的匿名类型/';
+    var disqus_url = 'http://yoursite.com/2018/07/22/多线程-Java与C#/';
     
     (function() {
     var dsq = document.createElement('script');
