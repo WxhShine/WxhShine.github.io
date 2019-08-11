@@ -12,19 +12,19 @@
     
         <meta name="keywords" content="Java C#" />
     
-    <meta name="description" content="泛型是什么?​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类. ​    (百度百科上是这样定义的:1.在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）2.在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（人们大多把这称作模板）不论使用哪个定义，泛型的参数在真正使用泛型时">
+    <meta name="description" content="泛型是什么?​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类，相当于类型参数化. ​    (百度百科上是这样定义的:1.在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）2.在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（人们大多把这称作模板）不论使用哪个定义，泛型的参">
 <meta name="keywords" content="Java C#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泛型-Java与C#">
 <meta property="og:url" content="http://yoursite.com/2019/01/16/泛型-Java与C/index.html">
 <meta property="og:site_name" content="WxhShine">
-<meta property="og:description" content="泛型是什么?​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类. ​    (百度百科上是这样定义的:1.在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）2.在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（人们大多把这称作模板）不论使用哪个定义，泛型的参数在真正使用泛型时">
+<meta property="og:description" content="泛型是什么?​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类，相当于类型参数化. ​    (百度百科上是这样定义的:1.在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）2.在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（人们大多把这称作模板）不论使用哪个定义，泛型的参">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/01/16/泛型-Java与C/泛型.jpg">
-<meta property="og:updated_time" content="2019-01-17T10:51:47.965Z">
+<meta property="og:updated_time" content="2019-02-10T09:18:41.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛型-Java与C#">
-<meta name="twitter:description" content="泛型是什么?​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类. ​    (百度百科上是这样定义的:1.在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）2.在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（人们大多把这称作模板）不论使用哪个定义，泛型的参数在真正使用泛型时">
+<meta name="twitter:description" content="泛型是什么?​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类，相当于类型参数化. ​    (百度百科上是这样定义的:1.在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）2.在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（人们大多把这称作模板）不论使用哪个定义，泛型的参">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/16/泛型-Java与C/泛型.jpg">
     
 
@@ -168,9 +168,39 @@
         
         <div class="article-entry" itemprop="articleBody">
             <img src="/2019/01/16/泛型-Java与C/泛型.jpg" title="泛型">
-<h3 id="泛型是什么"><a href="#泛型是什么" class="headerlink" title="泛型是什么?"></a>泛型是什么?</h3><p>​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类.</p>
+<h3 id="泛型是什么"><a href="#泛型是什么" class="headerlink" title="泛型是什么?"></a>泛型是什么?</h3><p>​    泛型:是可以在编程时，不确定使用某种类型时，用它来代替要使用的类，使之可以接受使用者指定的类，相当于类型参数化.</p>
 <p>​    (<em>百度百科上是这样定义的:1.在程序编码中一些包含类型参数的类型，也就是说泛型的参数只可以代表类，不能代表个别对象。（这是当今较常见的定义）2.在程序编码中一些包含参数的类。其参数可以代表类或对象等等。（人们大多把这称作模板）不论使用哪个定义，泛型的参数在真正使用泛型时都必须作出指明。</em>)</p>
 <a id="more"></a> 
+<h3 id="泛型怎么用"><a href="#泛型怎么用" class="headerlink" title="泛型怎么用?"></a>泛型怎么用?</h3><p>​    泛型的用法：1. 泛型方法；2. 泛型类；</p>
+<ol>
+<li><h4 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h4><p>泛型方法可以使方法根据用户的使用让类型参数化, 可以在接受不同的类型;</p>
+<h5 id="java"><a href="#java" class="headerlink" title="java:"></a>java:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Print(<span class="string">"Hello World"</span>);</span><br><span class="line">        Print(<span class="number">123</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">public</span>  <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">Print</span> <span class="params">(T printValue)</span></span>&#123;</span><br><span class="line">        System.out.println(printValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="c"><a href="#c" class="headerlink" title="c"></a>c</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args) </span><br><span class="line">&#123;</span><br><span class="line">      Print(&quot;Hello world&quot;);</span><br><span class="line">      Print(123);</span><br><span class="line">      Console.Read();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void Print&lt;T&gt;(T printValue)</span><br><span class="line">&#123;</span><br><span class="line">	Console.WriteLine(printValue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>两个例子的打印结果都是一样的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello World</span><br><span class="line">123</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>​    C#中的泛型方法中的泛型参数(T) 是写在方法名称后面</p>
+<p>​    Java中的泛型方法中的泛型参数(T)是写在返回类型的前面</p>
+<p>​    如果要使用多个泛型参数则是在&lt;&gt;中两个参数间用 “,”隔开 比如&lt;T,K&gt;</p>
+<ol start="2">
+<li><h4 id="泛型类-泛型接口"><a href="#泛型类-泛型接口" class="headerlink" title="泛型类(泛型接口)"></a>泛型类(泛型接口)</h4><p>泛型类中的泛型的使用区间是在整个类中, 而泛型方法是在整个方法中使用. 并且子类继承这个泛型类,子类也可以使用此泛型(泛型接口同理)</p>
+</li>
+</ol>
+<h5 id="c-1"><a href="#c-1" class="headerlink" title="c"></a>c</h5>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">   </span><br><span class="line">public class GenericDemo&lt;T&gt;</span><br><span class="line">   &#123;</span><br><span class="line">       public T PrintValue &#123; get; set; &#125;</span><br><span class="line">       public void Print()</span><br><span class="line">       &#123;</span><br><span class="line">           Console.WriteLine(PrintValue);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   public class GenericDemoChild&lt;T&gt; : GenericDemo&lt;T&gt;</span><br><span class="line">   &#123;</span><br><span class="line">       public void PrintChild()</span><br><span class="line">       &#123;</span><br><span class="line">           Console.WriteLine(&quot;Chlid&quot; + PrintValue.ToString());</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h5>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        var generic = <span class="keyword">new</span> GenericDemo&lt;String&gt;();</span><br><span class="line">        generic.PrintValue = <span class="string">"Hello World"</span>;</span><br><span class="line">        generic.Print();</span><br><span class="line">        var genericChild = <span class="keyword">new</span> GenericDemoChild&lt;Integer&gt;();</span><br><span class="line">        genericChild.PrintValue = <span class="number">123</span>;</span><br><span class="line">        genericChild.ChildPrint();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericDemo</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">public</span> T PrintValue;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Print</span><span class="params">(  )</span></span>&#123;</span><br><span class="line">        System.out.println(PrintValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericDemoChild</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span>  <span class="title">GenericDemo</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ChildPrint</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(PrintValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="C-与Java泛型的的不同之处"><a href="#C-与Java泛型的的不同之处" class="headerlink" title="C#与Java泛型的的不同之处"></a>C#与Java泛型的的不同之处</h4><h5 id="c-2"><a href="#c-2" class="headerlink" title="c#:"></a>c#:</h5><p>   ​    c#中有泛型约束,限制泛型的条件;比如限制泛型的父类必须时某某类型,现在泛型必须有构造函数,必须实现的接口;</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class Generic&lt;T&gt; where T : class , new()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>   where T 后面加上针对 泛型T 约束的条件</p>
+<p>   class :约束T必须时引用类型;</p>
+<p>   struct : 约束T必须时值类型;</p>
+<p>   new() : 必须有无参构造函数(若是有其他约束条件 new()必须放在最后一个约束条件);</p>
+<p>   一个具体类名: 必须继承自此类;</p>
+<p>   一个接口名: 必须实现此接口.</p>
+<h5 id="java-1"><a href="#java-1" class="headerlink" title="java:"></a>java:</h5><p>   ​    通配符 ? 表示泛型中可以任意的类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     List&lt;String&gt; stringlist = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">     stringlist.add(<span class="string">"hel"</span>);</span><br><span class="line">     stringlist.add(<span class="string">"11"</span>);</span><br><span class="line">     Print(stringlist);</span><br><span class="line">List&lt;Integer&gt; intList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">     intList.add(<span class="number">11</span>);</span><br><span class="line">     intList.add(<span class="number">22</span>);</span><br><span class="line">     Print(intList);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Print</span><span class="params">(List&lt;?&gt; list)</span></span>&#123;</span><br><span class="line">     System.out.println(list);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子可以正确输出.</p>
+<p>在通配符?后面加上 super(下) class类名 或者 extends(上)  class类名  表示通配符的上下限</p>
 
         </div>
         <footer class="article-footer">
@@ -178,7 +208,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2019/01/16/泛型-Java与C/" data-id="cjrw26l30000nv4998vigmpio" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/01/16/泛型-Java与C/" data-id="cjz6at8fl000zco99xekjv3zf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -311,6 +341,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2019/08/11/C-垃圾回收/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/08/11/C-垃圾回收/" class="title">C#--垃圾回收</a></p>
+                            <p class="item-date"><time datetime="2019-08-11T01:35:47.000Z" itemprop="datePublished">2019-08-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2019/02/08/HTTP协议/" class="thumbnail">
     
     
@@ -388,26 +438,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/10/13/NoSql简介/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/10/13/NoSql简介/NoSql.jpg)" alt="NoSql简介" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Nosql/">Nosql</a></p>
-                            <p class="item-title"><a href="/2018/10/13/NoSql简介/" class="title">NoSql简介</a></p>
-                            <p class="item-date"><time datetime="2018-10-13T10:59:42.000Z" itemprop="datePublished">2018-10-13</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -427,7 +457,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
