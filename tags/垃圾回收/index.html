@@ -6,13 +6,13 @@
     
 
     
-    <title>标签：: C# , EF | WxhShine</title>
+    <title>标签：: 垃圾回收 | WxhShine</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta property="og:type" content="website">
 <meta property="og:title" content="WxhShine">
-<meta property="og:url" content="http://yoursite.com/tags/C-EF/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/垃圾回收/index.html">
 <meta property="og:site_name" content="WxhShine">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -119,7 +119,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签：: <em>C# , EF</em>
+    <i class="icon fa fa-tag"></i>标签：: <em>垃圾回收</em>
     </h1>
 </div>
 
@@ -132,7 +132,7 @@
         
         <section class="archives-wrap">
             <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
+                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
             </div>
             <div class="archives">
     
@@ -143,17 +143,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2018/10/05/EF-CodeFirst-建表时单复数形式/" class="thumbnail">
+        <a href="/2019/08/11/C-垃圾回收/" class="thumbnail">
     
     
-        <span style="background-image:url(/2018/10/05/EF-CodeFirst-建表时单复数形式/New.jpg)" alt="EF-CodeFirst:建表时单复数形式" class="thumbnail-image"></span>
+        <span style="background-image:url(/2019/08/11/C-垃圾回收/垃圾回收.png)" alt="C#--垃圾回收" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2018/10/05/EF-CodeFirst-建表时单复数形式/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2019/08/11/C-垃圾回收/">0</span>
     
 </span>
 
@@ -166,68 +166,18 @@
             <div class="category">
             <a class="article-category-link" href="/categories/C/">C#</a>
             </div>
-            <div class="date"><time datetime="2018-10-05T06:28:34.000Z" itemprop="datePublished">2018-10-05</time></div>
+            <div class="date"><time datetime="2019-08-11T01:35:47.000Z" itemprop="datePublished">2019-08-11</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/10/05/EF-CodeFirst-建表时单复数形式/">EF-CodeFirst:建表时单复数形式</a>
+        <a href="/2019/08/11/C-垃圾回收/">C#--垃圾回收</a>
         </h1>
     
 
         <p class="article-excerpt">
             
-​    默认情况下,CodeFirst模式建立表格的名称是复数形式,比如User类建立表格后的名称是”Users”. 有时我们并不想使对应表的名称是复数形式, 那么如此我们应该怎么设置?
-​    想控制数据库见表的规则, 那么就重写DbContext类中的OnModelCreating方法.   而其中的控制表格名称单复数也在其中
-1234protected override void On
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/10/03/EF-CodeFirst模式/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2018/10/03/EF-CodeFirst模式/EF.png)" alt="EF-CodeFirst模式" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2018/10/03/EF-CodeFirst模式/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/C/">C#</a>
-            </div>
-            <div class="date"><time datetime="2018-10-03T06:27:14.000Z" itemprop="datePublished">2018-10-03</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/10/03/EF-CodeFirst模式/">EF-CodeFirst模式</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Relational Mapping 对象关系映射)工具，ORM让开发人员节省数据库访问的代码时间，将更多的时间放到业务逻辑层代码上。EF提供变更跟踪、唯一性约束、惰性加载、查询事物等。开发人员使用Linq语言，对数据库操作如同操作Object对象一样省事。
-​    EF由三种使用模式:1. C
+​    在C#中,内存的是由CLR进行管理，而在C\C++中内存是由程序员手动管理。这样的弊端就很明显：1.忘记释放不需要的内存，造成内存泄露；2.尝试访问已释放的内存，造成内存破坏，程序错误，进而造成安全漏洞。而C#中由系统管理，不需要的内存，由CLR进行清理。清理不需要的内存，就是C#中的垃圾回收。
         </p>
     </div>
 </article>
@@ -277,7 +227,7 @@ EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Re
                             <a href="/2019/08/11/C-垃圾回收/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(/2019/08/11/C-垃圾回收/垃圾回收.png)" alt="C#--垃圾回收" class="thumbnail-image"></span>
     
     
 </a>
@@ -285,7 +235,7 @@ EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Re
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
                             <p class="item-title"><a href="/2019/08/11/C-垃圾回收/" class="title">C#--垃圾回收</a></p>
                             <p class="item-date"><time datetime="2019-08-11T01:35:47.000Z" itemprop="datePublished">2019-08-11</time></p>
                         </div>
@@ -380,7 +330,7 @@ EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Re
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nosql/">Nosql</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nosql/">Nosql</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -400,7 +350,7 @@ EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Re
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-EF/">C# , EF</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clone/">Clone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/">Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nosql/">Nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clone/">Clone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EF/">EF</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/">GC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/">Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nosql/">Nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/垃圾回收/">垃圾回收</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -410,7 +360,7 @@ EF简介​    EF全称是Entity Framework,是微软官方提供的ORM(Object Re
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/C-EF/" style="font-size: 15px;">C# , EF</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/Java-C/" style="font-size: 20px;">Java C#</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a>
+            <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/EF/" style="font-size: 15px;">EF</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-C/" style="font-size: 10px;">Java C#</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/垃圾回收/" style="font-size: 10px;">垃圾回收</a>
         </div>
     </div>
 
