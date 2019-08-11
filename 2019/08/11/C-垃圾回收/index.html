@@ -21,7 +21,7 @@
 <meta property="og:description" content="​    在C#中,内存的是由CLR进行管理，而在C\C++中内存是由程序员手动管理。这样的弊端就很明显：1.忘记释放不需要的内存，造成内存泄露；2.尝试访问已释放的内存，造成内存破坏，程序错误，进而造成安全漏洞。而C#中由系统管理，不需要的内存，由CLR进行清理。清理不需要的内存，就是C#中的垃圾回收。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/08/11/C-垃圾回收/垃圾回收.png">
-<meta property="og:updated_time" content="2019-08-11T13:52:45.723Z">
+<meta property="og:updated_time" content="2019-08-11T14:22:00.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#--垃圾回收">
 <meta name="twitter:description" content="​    在C#中,内存的是由CLR进行管理，而在C\C++中内存是由程序员手动管理。这样的弊端就很明显：1.忘记释放不需要的内存，造成内存泄露；2.尝试访问已释放的内存，造成内存破坏，程序错误，进而造成安全漏洞。而C#中由系统管理，不需要的内存，由CLR进行清理。清理不需要的内存，就是C#中的垃圾回收。">
@@ -222,6 +222,13 @@
 <p>第1代产生更多垃圾, 第0代有新增对象</p>
 <img src="/2019/08/11/C-垃圾回收/垃圾回收5.png" title="垃圾回收5">
 <p>第3次回收, 因为第1代已达到预设值, 则将第1代可达对象升级为第2代, 第0代可达对象升级为第1代.(垃圾回收中 最高为第2代)</p>
+<h2 id="4-垃圾回收触发条件"><a href="#4-垃圾回收触发条件" class="headerlink" title="4.垃圾回收触发条件"></a>4.垃圾回收触发条件</h2><ol>
+<li><h4 id="CLR在检测到第0代超过预算时"><a href="#CLR在检测到第0代超过预算时" class="headerlink" title="CLR在检测到第0代超过预算时;"></a>CLR在检测到第0代超过预算时;</h4></li>
+<li><h4 id="代码显示调用system-GC的静态Collect方法"><a href="#代码显示调用system-GC的静态Collect方法" class="headerlink" title="代码显示调用system.GC的静态Collect方法;"></a>代码显示调用system.GC的静态Collect方法;</h4></li>
+<li><h4 id="Windows报告低内存情况"><a href="#Windows报告低内存情况" class="headerlink" title="Windows报告低内存情况;"></a>Windows报告低内存情况;</h4></li>
+<li><h4 id="CLR正在卸载AppDomain"><a href="#CLR正在卸载AppDomain" class="headerlink" title="CLR正在卸载AppDomain;"></a>CLR正在卸载AppDomain;</h4></li>
+<li><h4 id="CLR正在关闭"><a href="#CLR正在关闭" class="headerlink" title="CLR正在关闭."></a>CLR正在关闭.</h4></li>
+</ol>
 
         </div>
         <footer class="article-footer">
@@ -229,7 +236,7 @@
 
 
 
-    <a data-url="http://yoursite.com/2019/08/11/C-垃圾回收/" data-id="cjz71371000017o99vghp0x54" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/08/11/C-垃圾回收/" data-id="cjz724lns0001fw99dqpaq3md" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
