@@ -6,20 +6,26 @@
     
 
     
-    <title>HTTP协议 | WxhShine</title>
+    <title>异常处理-C# | WxhShine</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="Exception,异常" />
     
-    <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP协议">
-<meta property="og:url" content="http://yoursite.com/2019/02/08/HTTP协议/index.html">
+    <meta name="description" content="​    异常处理是指程序在运行过程中，发生错误会导致程序退出，这种错误，就叫做异常。 因此处理这种错误，就称为异常处理。">
+<meta name="keywords" content="Exception,异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异常处理-C#">
+<meta property="og:url" content="http://yoursite.com/2019/01/29/异常处理-C/index.html">
 <meta property="og:site_name" content="WxhShine">
+<meta property="og:description" content="​    异常处理是指程序在运行过程中，发生错误会导致程序退出，这种错误，就叫做异常。 因此处理这种错误，就称为异常处理。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-08T12:59:35.875Z">
+<meta property="og:image" content="http://yoursite.com/2019/01/29/异常处理-C/Exception.jpg">
+<meta property="og:updated_time" content="2019-08-25T03:14:48.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP协议">
+<meta name="twitter:title" content="异常处理-C#">
+<meta name="twitter:description" content="​    异常处理是指程序在运行过程中，发生错误会导致程序退出，这种错误，就叫做异常。 因此处理这种错误，就称为异常处理。">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/29/异常处理-C/Exception.jpg">
     
 
     
@@ -122,19 +128,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/C/">C#</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-HTTP协议" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-异常处理-C" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        HTTP协议
+        异常处理-C#
         </h1>
     
 
@@ -144,26 +150,104 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/02/08/HTTP协议/" class="article-date">
-            <time datetime="2019-02-08T12:59:35.000Z" itemprop="datePublished">2019-02-08</time>
+        <a href="/2019/01/29/异常处理-C/" class="article-date">
+            <time datetime="2019-01-29T03:37:51.000Z" itemprop="datePublished">2019-01-29</time>
         </a>
     </div>
 
 		
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Exception/">Exception</a>, <a class="tag-link" href="/tags/异常/">异常</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <img src="/2019/01/29/异常处理-C/Exception.jpg" title="Exception">
+<p>​    异常处理是指程序在运行过程中，发生错误会导致程序退出，这种错误，就叫做异常。</p>
+<p>因此处理这种错误，就称为异常处理。</p>
+<a id="more"></a>
+<h2 id="异常处理机制"><a href="#异常处理机制" class="headerlink" title="异常处理机制"></a>异常处理机制</h2><p>​    在C#中的异常处理机制是使用使用try, catch,finally代码块进行处理。</p>
+<ol>
+<li><h4 id="try块"><a href="#try块" class="headerlink" title="try块"></a>try块</h4><p>在try块中包含会抛出异常的代码；而且一个try快必须关联catch或者finally。</p>
+</li>
+<li><h4 id="catch块"><a href="#catch块" class="headerlink" title="catch块"></a>catch块</h4><p>在catch中包含处理异常的代码；一个try块可以关联多个catch块，catch后面的参数为<strong>捕捉类型</strong>，而他的捕捉类型必须是<strong>System.Exception</strong>或者它的派生类，如果有多个catch块，那么其中的捕捉类型必须是由子类由上至下的排列，一次捕捉；当然为了兼容其他CLR的语言(CLR允许抛出任何类型，不仅仅是<strong>Exception</strong>类及子类 ，比如Int32，DateTime，String)，所以catch后面也可以不许用加捕捉类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">void Method()&#123;</span><br><span class="line">    try&#123;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">    catch(XxxException)&#123;//捕捉XxxException异常</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    catch(YyyException)&#123;//捕捉YyyException异常</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    catch(Excetion)&#123;//捕捉Exception异常</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    catch&#123;//捕捉所有抛出的试列</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>finally块</p>
+<p>在finally块中包含必须执行的代码。一般finally块中执行try块中需要清理资源的操作，必须在打开了文件后，关闭文件就应放在finally块中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void Method(string pathName)&#123;</span><br><span class="line">    FileStream fs = null;</span><br><span class="line">    try&#123;</span><br><span class="line">        fs = new FileStream(pathName,FileMode.Open);</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    catch(IOException)&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    finally&#123;</span><br><span class="line">        //确保fs被清理</span><br><span class="line">        if(fs!=null) fs.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上的代码就确保了是否try包含异常，文件都会被关闭。如果没有finally，那么文件关闭操作只会在垃圾回收中执行。</p>
+</li>
+</ol>
+<h2 id="System-Exception类"><a href="#System-Exception类" class="headerlink" title="System.Exception类"></a>System.Exception类</h2><p>​    CLR允许抛出任何类型的实例。但是C#必须抛出<strong>System.Exception</strong>类及他的子类。</p>
+<p><strong>System.Exception类型常公共属性</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>访问</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message</td>
+<td>只读</td>
+<td>String</td>
+<td>错误消息以处理异常的开发人员为目标。<a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.message?view=netframework-4.8" target="_blank" rel="noopener">Message</a>属性的文本应该完整地描述错误，并且在可能的情况下，还应该解释如何更正错误。顶级异常处理程序可以向最终用户显示消息，因此您应该确保它在语法上是正确的，并且消息的每个句子都以句点结束。不要使用问号或感叹号。如果您的应用程序使用本地化的异常消息，则应确保准确转换它们</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>只读</td>
+<td>IDictionary</td>
+<td>使用<a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.data?view=netframework-4.8" target="_blank" rel="noopener">Data</a>属性返回的<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.idictionary?view=netframework-4.8" target="_blank" rel="noopener">System.Collections.IDictionary</a>对象来存储和检索与异常相关的补充信息。代码在抛出异常前在该集合中添加记录项；捕捉异常的代码可在异常恢复过程中查询记录项并利用其中信息。</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>读/写</td>
+<td>String</td>
+<td>包含生成异常的程序集名称。</td>
+</tr>
+<tr>
+<td>StackTrace</td>
+<td>只读</td>
+<td>String</td>
+<td>包含抛出异常前的堆栈信息。其中的信息是描述了异常发生前调用的哪些方法，这些信息用于检查代码，修复bug非常有效</td>
+</tr>
+<tr>
+<td>InnerException</td>
+<td>只读</td>
+<td>Exception</td>
+<td>如果当前异常是在处理一个异常时抛出的，指出上一个异常是什么</td>
+</tr>
+<tr>
+<td>TargetSite</td>
+<td>只读</td>
+<td>MethodBase</td>
+<td>包含抛出异常的方法。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>一个异常抛出时，CLR会记录throw指令的位置,然后在访问StackTrace属性时将堆栈信息写入。</p>
+<p>每次当throw ex时，会重置异常的起点。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void Method()&#123;</span><br><span class="line">    try&#123;</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">    catch(Exception ex)&#123;</span><br><span class="line">        throw ex;//ex的StackTrace中的起点就更新为这里</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">public static void MethodDemo1()</span><br><span class="line">&#123;</span><br><span class="line">    string exstr1 = &quot;&quot;, exstr2=&quot;&quot;, exstr3=&quot;&quot;;</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            try</span><br><span class="line">            &#123;</span><br><span class="line">                throw new Exception(&quot;这是一个异常&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            catch(Exception ex)</span><br><span class="line">            &#123;</span><br><span class="line">                exstr1 = ex.StackTrace;</span><br><span class="line">                //   at LearningDemo.ExceptionDemo.MethodDemo1() in C:\Users\wuxia\Desktop\桌面临时文件\LearningDemo\LearningDemo\ExceptionDemo.cs:line 19</span><br><span class="line">                throw;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch(Exception ex)</span><br><span class="line">        &#123;</span><br><span class="line">            exstr2 = ex.StackTrace;</span><br><span class="line">            //   at LearningDemo.ExceptionDemo.MethodDemo1() in C:\Users\wuxia\Desktop\桌面临时文件\LearningDemo\LearningDemo\ExceptionDemo.cs:line 19</span><br><span class="line">            throw ex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    catch(Exception ex)</span><br><span class="line">    &#123;</span><br><span class="line">        exstr3 = ex.StackTrace;</span><br><span class="line">        //at LearningDemo.ExceptionDemo.MethodDemo1() in C:\Users\wuxia\Desktop\桌面临时文件\LearningDemo\LearningDemo\ExceptionDemo.cs:line 30</span><br><span class="line">    &#125;</span><br><span class="line">    finally</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(exstr1);</span><br><span class="line">        Console.WriteLine(exstr2);</span><br><span class="line">        Console.WriteLine(exstr3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在以上例子: exstr3中  是通过throw ex 抛出异常,  得到的ex.StackTrace则定位到throw ex的位置.</p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2019/02/08/HTTP协议/" data-id="cjzgf715d000518992vmz6dpr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2019/01/29/异常处理-C/" data-id="cjzgf715z00111899ekz4j10k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -261,20 +345,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/08/11/C-垃圾回收/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/02/08/HTTP协议/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            C#--垃圾回收
+            HTTP协议
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2019/01/29/异常处理-C/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/01/16/泛型-Java与C/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">异常处理-C#</p>
+        <p class="article-nav-title">泛型-Java与C#</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -488,7 +572,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://yoursite.com/2019/02/08/HTTP协议/';
+    var disqus_url = 'http://yoursite.com/2019/01/29/异常处理-C/';
     
     (function() {
     var dsq = document.createElement('script');
