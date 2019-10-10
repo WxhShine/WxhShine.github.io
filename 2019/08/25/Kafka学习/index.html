@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Kafka学习 | WxhShine</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="kafka,消息队列" />
+    
+    <meta name="description" content="​    消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，但不担心如何共享它。 分布式消息传递基于可靠消息队列的概念。 消息在客户端应用程序和消息传递系统之间异步排队。 有两种类型的消息模式可用 - 一种是点对点，另一种是发布 - 订阅(pub-sub)消息系统。">
+<meta name="keywords" content="kafka,消息队列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka学习">
+<meta property="og:url" content="http://yoursite.com/2019/08/25/Kafka学习/index.html">
+<meta property="og:site_name" content="WxhShine">
+<meta property="og:description" content="​    消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，但不担心如何共享它。 分布式消息传递基于可靠消息队列的概念。 消息在客户端应用程序和消息传递系统之间异步排队。 有两种类型的消息模式可用 - 一种是点对点，另一种是发布 - 订阅(pub-sub)消息系统。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/25/Kafka学习/kafka1.png">
+<meta property="og:updated_time" content="2019-08-25T09:29:27.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kafka学习">
+<meta name="twitter:description" content="​    消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，但不担心如何共享它。 分布式消息传递基于可靠消息队列的概念。 消息在客户端应用程序和消息传递系统之间异步排队。 有两种类型的消息模式可用 - 一种是点对点，另一种是发布 - 订阅(pub-sub)消息系统。">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/25/Kafka学习/kafka1.png">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C#</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C-与Java/">C#与Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/MD语法/">MD语法</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Nosql/">Nosql</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/kafka消息队列/">kafka消息队列</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/敏捷开发/">敏捷开发</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/kafka消息队列/">kafka消息队列</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Kafka学习" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Kafka学习
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/08/25/Kafka学习/" class="article-date">
+            <time datetime="2019-08-25T06:55:34.000Z" itemprop="datePublished">2019-08-25</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/kafka/">kafka</a>, <a class="tag-link" href="/tags/消息队列/">消息队列</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <img src="/2019/08/25/Kafka学习/kafka1.png" title="kafka">
+<p>​    消息系统负责将数据从一个应用程序传输到另一个应用程序，因此应用程序可以专注于数据，但不担心如何共享它。 分布式消息传递基于可靠消息队列的概念。 消息在客户端应用程序和消息传递系统之间异步排队。 有两种类型的消息模式可用 - 一种是点对点，另一种是发布 - 订阅(pub-sub)消息系统。 </p>
+<a id="more"></a>
+<h1 id="Kafka概述"><a href="#Kafka概述" class="headerlink" title="Kafka概述"></a>Kafka概述</h1><h3 id="关于kafka"><a href="#关于kafka" class="headerlink" title="关于kafka"></a>关于kafka</h3><p>​    Apache Kafka是一个分布式发布 - 订阅消息系统和一个强大的队列，可以处理大量的数据，并使您能够将消息从一个端点传递到另一个端点。 Kafka适合离线和在线消息消费。 Kafka消息保留在磁盘上，并在群集内复制以防止数据丢失。 Kafka构建在ZooKeeper同步服务之上。 它与Apache Storm和Spark非常好地集成，用于实时流式数据分析。</p>
+<p>​    Kafka是一个统一的平台，用于处理所有实时数据Feed。 Kafka支持低延迟消息传递，并在出现机器故障时提供对容错的保证。 它具有处理大量不同消费者的能力。 Kafka非常快，执行2百万写/秒。 Kafka将所有数据保存到磁盘，这实质上意味着所有写入都会进入操作系统(RAM)的页面缓存。 这使得将数据从页面缓存传输到网络套接字非常有效。</p>
+<h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><ol>
+<li>可靠性：kafka是分布式，分区，复制的容错的。</li>
+<li>可扩展性：kafka消息传递系统轻松缩放，无需停机。</li>
+<li>耐用性：kafka使用“分布式提交日志”，消息会尽可能快地保留在磁盘上，因此它是持久的。</li>
+<li>性能：kafka对于发布和订阅消息都是具有高吞吐量的的。即时存储了许多TB的消息，它也保持稳定的性能。</li>
+</ol>
+<p>kafka非常快，并保证零停机和零数据丢失。</p>
+<h3 id="kafka术语"><a href="#kafka术语" class="headerlink" title="kafka术语"></a>kafka术语</h3><img src="/2019/08/25/Kafka学习/kafka2.jpg" title="kafka">
+<ol>
+<li><strong>Topics(主题)</strong>：属于特定类别的消息流称为主题。数据存储在主题中。主题被拆分成分区。对于每个主题，kafka保存一个分区的数据。每个这样的分区包含不可变有序序列的消息。分区被实现为具有相等大小的一组分段文件。</li>
+<li><strong>Partition(分区)</strong>：主题可能有许多分区，因此它可以处理任意数量的数据，分区布置在不同的服务器上，负载均衡，打破性能瓶颈。</li>
+<li><strong>Partition offset(分区偏移)</strong>：每个分区消息具有称为“offset”的唯一序列标识。</li>
+<li><strong>Replicas of partition(分区备份)</strong>：副本只是一个分区的“备份”。副本从不读取或写入数据。他们用于防止数据丢失。</li>
+<li><strong>Brokers(经纪人)</strong>：（1）代理是负责维护发布数据的简单系统。每个代理中的每个主题可以具有0个或多个分区。假设，如果在一个主题和N个代理中有N个分区，每个代理将有一个分区。（2）假设在一个主题中有N个分区并且多于N个代理(n+m)，则每一个N代理将在具有一个分区，并且下一个M代理将不具有用于该特定主题的任何分区。（3）假设在一个主题中有N个分区并且小于N个代理（n-m），每个代理将在他们之间具有一个或多个分区共享。由于代理之间的负载分布不相等，不推荐使用此方案。</li>
+<li><strong>kafka cluster(kafka集群)</strong>：kafka有多个代理被称为kafka集群。可以扩展kafka集群，无需停机。这些集群用于管理消息数据的持久性和复制。</li>
+<li><strong>Producers(生产者)</strong>：生产者是发送给一个或多个kafka主题的消息的发布者。生产者向kafka经纪人发送数据。每当生产者将消息发布给代理时，代理只需将消息附加到最后一段文件。实际上，该消息将被附加到分区。生产者还可以向他们选择的分区发送消息。</li>
+<li><strong>Consumers(消费者)</strong>：消费者从经纪人处读取数据。消费者订阅一个或多个主题，并通过从代理中提取数据来使用已发布的消息。</li>
+<li><strong>Leader(领导者)</strong>：负责给定分区的所有读取和写入的节点。每个分区都有一个服务器充当Leader。</li>
+<li><strong>Follower(追随者)</strong>：跟随领导者指令的节点被称为Follower。如果领导失败，一个追随者将自动成为新的领导者。跟随者作为正常的消费者，拉取消息并更新自己的数据存储。</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2019/08/25/Kafka学习/" data-id="ck1kryphl000b1o99to7yula9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/WxhShine" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/10/05/读《用户故事与敏捷方法》/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            读《用户故事与敏捷方法》
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2019/08/11/C-垃圾回收/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">C#--垃圾回收</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/10/05/读《用户故事与敏捷方法》/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2019/10/05/读《用户故事与敏捷方法》/敏捷开发.png)" alt="读《用户故事与敏捷方法》" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/敏捷开发/">敏捷开发</a></p>
+                            <p class="item-title"><a href="/2019/10/05/读《用户故事与敏捷方法》/" class="title">读《用户故事与敏捷方法》</a></p>
+                            <p class="item-date"><time datetime="2019-10-05T13:56:11.000Z" itemprop="datePublished">2019-10-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/08/25/Kafka学习/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2019/08/25/Kafka学习/kafka1.png)" alt="Kafka学习" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/kafka消息队列/">kafka消息队列</a></p>
+                            <p class="item-title"><a href="/2019/08/25/Kafka学习/" class="title">Kafka学习</a></p>
+                            <p class="item-date"><time datetime="2019-08-25T06:55:34.000Z" itemprop="datePublished">2019-08-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/08/11/C-垃圾回收/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2019/08/11/C-垃圾回收/垃圾回收.png)" alt="C#--垃圾回收" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
+                            <p class="item-title"><a href="/2019/08/11/C-垃圾回收/" class="title">C#--垃圾回收</a></p>
+                            <p class="item-date"><time datetime="2019-08-11T01:35:47.000Z" itemprop="datePublished">2019-08-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/02/08/HTTP协议/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2019/02/08/HTTP协议/" class="title">HTTP协议</a></p>
+                            <p class="item-date"><time datetime="2019-02-08T12:59:35.000Z" itemprop="datePublished">2019-02-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/01/29/异常处理-C/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2019/01/29/异常处理-C/Exception.jpg)" alt="异常处理-C#" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C/">C#</a></p>
+                            <p class="item-title"><a href="/2019/01/29/异常处理-C/" class="title">异常处理-C#</a></p>
+                            <p class="item-date"><time datetime="2019-01-29T03:37:51.000Z" itemprop="datePublished">2019-01-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C#</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C-与Java/">C#与Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MD语法/">MD语法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nosql/">Nosql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/kafka消息队列/">kafka消息队列</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/敏捷开发/">敏捷开发</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Clone/">Clone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EF/">EF</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Exception/">Exception</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/">GC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-C/">Java C#</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/">Log</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD语法/">MD语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nosql/">Nosql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cache/">cache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/">kafka</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/垃圾回收/">垃圾回收</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异常/">异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/敏捷开发/">敏捷开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/消息队列/">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/Clone/" style="font-size: 10px;">Clone</a> <a href="/tags/EF/" style="font-size: 15px;">EF</a> <a href="/tags/Exception/" style="font-size: 10px;">Exception</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java-C/" style="font-size: 10px;">Java C#</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/MD语法/" style="font-size: 10px;">MD语法</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/kafka/" style="font-size: 10px;">kafka</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/垃圾回收/" style="font-size: 10px;">垃圾回收</a> <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/敏捷开发/" style="font-size: 10px;">敏捷开发</a> <a href="/tags/消息队列/" style="font-size: 10px;">消息队列</a> <a href="/tags/读后感/" style="font-size: 10px;">读后感</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 XiaoHui</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2019/08/25/Kafka学习/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
